@@ -16,7 +16,6 @@ export const needleInHaystack = (haystack:Array<any>, needle:any) => {
     return haystack.reduce((a, b) => {
         let aDiff = Math.abs(a - needle);
         let bDiff = Math.abs(b - needle);
-
         if (aDiff == bDiff) {
             return a > b ? a : b;
         } else {
@@ -44,15 +43,19 @@ export const arrayContainsArrayVals = (arr1:Array<any>, arr2:Array<any>) => {
 }
 
 export const arrayReducers = {
-    sumOfArr : function(x){
+    sumOfArr : (x) => {
          if(x.every(function(a){return a===null})){return null}
          return x.reduce(function(a,b){return a + b})
     },
-    averageOfArr : function(x){
+    averageOfArr : (x) => {
          if(x.every(function(a){return a===null})){return null}
          return x.reduce(function(a,b){return a + b})/x.length
      },
-    maxOfArr : function(x) {
+     productOfArr: (x) => {
+        if(x.every(function(a){return a===null})){return null}
+        return x.reduce(function(a,b){return a * b})
+     },
+    maxOfArr : (x) => {
         let max = 0
         for(let i in x){
              max = (x[i] > max) ? x[i] : max
