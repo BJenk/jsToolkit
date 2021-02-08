@@ -10,6 +10,7 @@ export const arrayOfRandomNumbers = (length:number, power:number) => {
     let l:number = (length) ?  length : 10
     let p:number = (power)  ?  power : 100
    return new Array(l).fill(0).map(x => x + Math.floor(Math.random()*p))
+   //TODO: Include options for positives and negatives
 }
 
 export const needleInHaystack = (haystack:Array<any>, needle:any) => {
@@ -24,6 +25,16 @@ export const needleInHaystack = (haystack:Array<any>, needle:any) => {
     });
 }
 
+export const onlyUniqueValuesArray = (a) => {
+    var seen = {};
+    return a.filter(function(item) {
+        return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+    });
+}
+
+export const onlyUniqueValuesArrayV2 = (a) => {
+    return [...new Set(a)]
+}
 
 export const twoArraysMatch = (arr1:Array<any>, arr2:Array<any>) => {
 	// Check if the arrays are the same length
