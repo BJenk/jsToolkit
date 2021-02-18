@@ -83,3 +83,12 @@ export const arrayReducers = {
      medianOfArr: null,
      meanOfArr:   null,
  }
+
+// recursively slices an array into smaller chunks
+// first parameter is the initial array, second parameter is the length of subarray
+// arraySlicer([1,2,3,4,5,6,7,8,9], 3) => [[1, 2, 3],[4, 5, 6],[7, 8, 9]]
+// arraySlicer([1,2,3,4,5,6,7,8,9,10,11,12,13], 5) => [[1, 2, 3, 4, 5],[6, 7, 8, 9, 10],[11, 12, 13]]
+export const arraySlicer = (arr, len) => {
+    if(arr.length<=0){return[]}
+    return [ arr.slice(0,len), ...arraySlicer(arr.slice(len), len)]
+}
